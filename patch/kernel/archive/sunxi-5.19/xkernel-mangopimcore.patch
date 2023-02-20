@@ -139,10 +139,10 @@ index 000000000..495d79740
 +};
 diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-mangopi-mcore.dts b/arch/arm64/boot/dts/allwinner/sun50i-h616-mangopi-mcore.dts
 new file mode 100644
-index 000000000..4697653dc
+index 000000000..8140417fb
 --- /dev/null
 +++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-mangopi-mcore.dts
-@@ -0,0 +1,344 @@
+@@ -0,0 +1,358 @@
 +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
 +/*
 + * Copyright (C) 2020 Arm Ltd.
@@ -425,6 +425,20 @@ index 000000000..4697653dc
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&uart0_ph_pins>;
 +	status = "okay";
++};
++
++&uart1 {
++ uart-has-rtscts;
++ pinctrl-0 = <&uart1_pins>, <&uart1_rts_cts_pins>;
++ pinctrl-names = "default";
++ status = "okay";
++
++   bluetooth {
++              compatible = "realtek,rtl8723ds-bt";
++              device-wake-gpios = <&pio 6 17 GPIO_ACTIVE_HIGH>; /* PG17 */
++              enable-gpios = <&pio 6 19 GPIO_ACTIVE_HIGH>; /* PG19 */
++              host-wake-gpios = <&pio 6 16 GPIO_ACTIVE_HIGH>; /* PG16 */
++ };
 +};
 +
 +&uart2 {

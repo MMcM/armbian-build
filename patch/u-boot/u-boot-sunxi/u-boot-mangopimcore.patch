@@ -320,7 +320,7 @@ index b97a09c3..b70b9beb 100644
  #endif
  
 diff --git a/arch/arm/mach-sunxi/dram_sun50i_h616.c b/arch/arm/mach-sunxi/dram_sun50i_h616.c
-index acdfb3ce..0c07d37a 100644
+index acdfb3ce..83e8abc2 100644
 --- a/arch/arm/mach-sunxi/dram_sun50i_h616.c
 +++ b/arch/arm/mach-sunxi/dram_sun50i_h616.c
 @@ -360,7 +360,7 @@ static bool mctl_phy_read_calibration(struct dram_para *para)
@@ -341,17 +341,8 @@ index acdfb3ce..0c07d37a 100644
  		mctl_phy_configure_odt();
  
  	clrsetbits_le32(SUNXI_DRAM_PHY0_BASE + 4, 7, 0xa);
-@@ -972,7 +972,7 @@ static void mctl_auto_detect_dram_size(struct dram_para *para)
- 	para->rows = 18;
- 	mctl_core_init(para);
- 
--	for (para->rows = 13; para->rows < 18; para->rows++) {
-+	for (para->rows = 13; para->rows < 16; para->rows++) {
- 		/* 8 banks, 8 bit per byte and 16/32 bit width */
- 		if (mctl_mem_matches((1 << (para->rows + para->cols +
- 					    4 + para->bus_full_width))))
 diff --git a/board/sunxi/board.c b/board/sunxi/board.c
-index c4f69966..15a61b61 100644
+index c4f69966..38f9a6ba 100644
 --- a/board/sunxi/board.c
 +++ b/board/sunxi/board.c
 @@ -43,6 +43,7 @@
@@ -402,7 +393,7 @@ index c4f69966..15a61b61 100644
 +	}
 +
 +     val=readl(0x300622c);      
-+    // if((val&sunxi_ac300_key)==0)
++     if((val&sunxi_ac300_key)==0)
 +     {
 +	i2c_set_bus_num(0);
 +	data[0] = 0;
@@ -609,7 +600,7 @@ index d7553fe1..e90f9a74 100644
  };
  
 diff --git a/drivers/power/axp305.c b/drivers/power/axp305.c
-index 0191e4d4..238004ad 100644
+index 0191e4d4..0668a346 100644
 --- a/drivers/power/axp305.c
 +++ b/drivers/power/axp305.c
 @@ -31,7 +31,7 @@ int axp_set_dcdc4(unsigned int mvolt)
@@ -649,9 +640,9 @@ index 0191e4d4..238004ad 100644
 +	if (ret)
 +		return ret;
 +		
-+	ret = pmic_bus_write(0x12, 0x7);
-+	if (ret)
-+		return ret;
++//	ret = pmic_bus_write(0x12, 0x7);
++//	if (ret)
++//		return ret;
 +
 +	return pmic_bus_setbits(AXP305_OUTPUT_CTRL1,
 +				0x1f);

@@ -1,0 +1,30 @@
+MQ-Quad board for armbian
+git clone https://github.com/open-cores/mangguo-h616-armbian.git
+git checkout  v22.08
+for desktop:
+./compile.sh  BOARD=mangopimcore BRANCH=edge RELEASE=jammy BUILD_MINIMAL=no BUILD_DESKTOP=yes KERNEL_ONLY=no KERNEL_CONFIGURE=no DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base COMPRESS_OUTPUTIMAGE=sha,gpg,imgfor cli:
+ ./compile.sh  BOARD=mangopimcore BRANCH=edge RELEASE=jammy BUILD_MINIMAL=no BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no COMPRESS_OUTPUTIMAGE=sha,gpg,img
+
+The first run of the compilation takes about 2 hours depending on your network configuration, and the final image is stored in ./out/images
+for desktop:Armbian_22.08.2_Mangopimcore_jammy_edge_5.19.4_xfce_desktop.img
+for cli:Armbian_22.08.2_Mangopimcore_jammy_edge_5.19.4.img
+
+To flash the image into the TF card and power on, you need to configure the username and password through the serial console or HDMI display at one startup
+
+The current image supports the following hardware features:
+wifi/BT for rtl8723ds 
+usb host (2 usb host for  type c and 2 usb host  p4 connect)
+ethernet for mac1 with ephy (p4 connect)
+uart1 uart2
+hdmi with audio
+i2c1 i2c2
+spi0 nor flash
+spi1dev
+gpu(panforst)
+cpu(max freq 1.8g  but armbian set max 1.5g  you can run armbian-config modify max freq for run 1.8g)
+
+PS:
+If you want upgrade pls hold dtb and kernel"
+echo "linux-dtb-edge-sunxi64  hold" | dpkg --set-selections
+echo "linux-image-edge-sunxi64  hold" | dpkg --set-selections
+

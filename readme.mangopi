@@ -2,8 +2,9 @@ MQ-Quad board for armbian
 git clone https://github.com/open-cores/mangguo-h616-armbian.git
 git checkout  v22.08
 for desktop:
-./compile.sh  BOARD=mangopimcore BRANCH=edge RELEASE=jammy BUILD_MINIMAL=no BUILD_DESKTOP=yes KERNEL_ONLY=no KERNEL_CONFIGURE=no DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base COMPRESS_OUTPUTIMAGE=sha,gpg,imgfor cli:
- ./compile.sh  BOARD=mangopimcore BRANCH=edge RELEASE=jammy BUILD_MINIMAL=no BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no COMPRESS_OUTPUTIMAGE=sha,gpg,img
+./compile.sh  BOARD=mangopimcore BRANCH=edge RELEASE=jammy BUILD_MINIMAL=no BUILD_DESKTOP=yes KERNEL_ONLY=no KERNEL_CONFIGURE=no DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base COMPRESS_OUTPUTIMAGE=sha,gpg,img
+for cli:
+./compile.sh  BOARD=mangopimcore BRANCH=edge RELEASE=jammy BUILD_MINIMAL=no BUILD_DESKTOP=no KERNEL_ONLY=no KERNEL_CONFIGURE=no COMPRESS_OUTPUTIMAGE=sha,gpg,img
 
 The first run of the compilation takes about 2 hours depending on your network configuration, and the final image is stored in ./out/images
 for desktop:Armbian_22.08.2_Mangopimcore_jammy_edge_5.19.4_xfce_desktop.img

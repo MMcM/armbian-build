@@ -21,6 +21,8 @@ function artifact_armbian-base-files_prepare_version() {
 	: "${RELEASE:?RELEASE is not set}"
 	: "${ARCH:?ARCH is not set}"
 
+        echo "nameserver 8.8.8.8" >/etc/resolv.conf
+
 	artifact_version="undetermined"        # outer scope
 	artifact_version_reason="undetermined" # outer scope
 

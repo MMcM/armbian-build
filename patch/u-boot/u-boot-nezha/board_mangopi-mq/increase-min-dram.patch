@@ -1,0 +1,14 @@
+diff --git a/board/sunxi/Kconfig b/board/sunxi/Kconfig
+index 6d86f4d0bb..9b04cbd64e 100644
+--- a/board/sunxi/Kconfig
++++ b/board/sunxi/Kconfig
+@@ -100,7 +100,8 @@ config SPL_TEXT_BASE
+ config SUNXI_MINIMUM_DRAM_MB
+ 	int
+ 	default 32 if MACH_SUNIV
+-	default 64 if MACH_SUN8I_V3S || TARGET_SUN20I_D1
++	default 64 if MACH_SUN8I_V3S
++	default 512 if TARGET_SUN20I_D1
+ 	default 256
+ 	help
+ 	  Minimum DRAM size expected on the board. Traditionally we

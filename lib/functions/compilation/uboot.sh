@@ -192,6 +192,7 @@ function compile_uboot_target() {
 	do_with_ccache_statistics run_host_command_logged_long_running \
 		"CFLAGS='${uboot_cflags}'" "KCFLAGS='${uboot_cflags}'" \
 		CCACHE_BASEDIR="$(pwd)" PATH="${toolchain}:${toolchain2}:${PATH}" \
+		OPENSBI=/armbian/cache/sources/opensbi/build/platform/generic/firmware/fw_dynamic.bin \
 		unbuffer make "$target_make" "$CTHREADS" "${cross_compile}"
 
 	display_alert "${uboot_prefix}built u-boot target" "${version} in $((SECONDS - ts)) seconds" "info"

@@ -1,0 +1,48 @@
+diff --git a/arch/riscv/dts/sun20i-d1-lichee-rv-dock.dts b/arch/riscv/dts/sun20i-d1-lichee-rv-dock.dts
+index bcdd8088c7..51179d8fc7 100644
+--- a/arch/riscv/dts/sun20i-d1-lichee-rv-dock.dts
++++ b/arch/riscv/dts/sun20i-d1-lichee-rv-dock.dts
+@@ -170,3 +170,19 @@
+ &usbphy {
+ 	usb1_vbus-supply = <&reg_vcc>;
+ };
++
++&spi0 {
++	status = "okay";
++};
++
++&spi1 {
++	pinctrl-0 = <&spi1_pd_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++	spidev@0 {
++		compatible = "linux,spidev", "rohm,dh2228fv" ;
++		spi-max-frequency = <100000000>;
++		reg = <0>;
++		status = "okay";
++	};
++};
+diff --git a/arch/riscv/dts/sun20i-d1-mangopi-mq-pro.dts b/arch/riscv/dts/sun20i-d1-mangopi-mq-pro.dts
+index a7149baf18..41e40fdc99 100644
+--- a/arch/riscv/dts/sun20i-d1-mangopi-mq-pro.dts
++++ b/arch/riscv/dts/sun20i-d1-mangopi-mq-pro.dts
+@@ -167,3 +167,19 @@
+ 	usb0_vbus-supply = <&reg_vcc>;
+ 	status = "okay";
+ };
++
++&spi0 {
++	status = "okay";
++};
++
++&spi1 {
++	pinctrl-0 = <&spi1_pd_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++	spidev@0 {
++		compatible = "linux,spidev", "rohm,dh2228fv" ;
++		spi-max-frequency = <100000000>;
++		reg = <0>;
++		status = "okay";
++	};
++};

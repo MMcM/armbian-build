@@ -229,7 +229,7 @@ index 000000000..8140417fb
 +};
 +
 +&ehci0 {
-+	status = "okay";
++	status = "disabled";
 +};
 +
 +&ehci1 {
@@ -335,7 +335,7 @@ index 000000000..8140417fb
 +};
 +
 +&ohci0 {
-+	status = "okay";
++	status = "disabled";
 +};
 +
 +&ohci1 {
@@ -448,8 +448,8 @@ index 000000000..8140417fb
 +};
 +
 +&usbotg {
-+	dr_mode = "host";	/* USB A type receptable */
-+        status = "okay";
++	dr_mode = "peripheral";	/* USB A type receptable */
++       status = "okay";
 +};
 +
 +&usbphy {

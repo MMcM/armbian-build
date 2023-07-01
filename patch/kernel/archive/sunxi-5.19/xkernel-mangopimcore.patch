@@ -142,7 +142,7 @@ new file mode 100644
 index 000000000..8140417fb
 --- /dev/null
 +++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-mangopi-mcore.dts
-@@ -0,0 +1,358 @@
+@@ -0,0 +1,360 @@
 +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
 +/*
 + * Copyright (C) 2020 Arm Ltd.
@@ -167,6 +167,8 @@ index 000000000..8140417fb
 +		serial1 = &uart2;
 +		mmc0 =&mmc0;
 +		mmc1 =&mmc1;
++		i2c1 =&i2c1;
++		i2c2 =&i2c2;
 +	};
 +
 +	chosen {
